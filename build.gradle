@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+//dependencies {
+//    // Selenium (добавлен полный комплект, включая RemoteWebDriver и ChromiumDriver)
+   // testImplementation 'org.seleniumhq.selenium:selenium-java:4.14.1'
+   // testImplementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.14.1'
+//    testImplementation 'org.seleniumhq.selenium:selenium-firefox-driver:4.14.1'
+//    testImplementation 'org.seleniumhq.selenium:selenium-edge-driver:4.14.1'
+//    testImplementation 'org.seleniumhq.selenium:selenium-remote-driver:4.14.1'
+//
+    // TestNG (для @Test, @BeforeMethod, @AfterMethod)
+  //  testImplementation 'org.testng:testng:7.7.1'
+//
+    // WebDriverManager (управление драйверами)
+//    testImplementation 'io.github.bonigarcia:webdrivermanager:5.6.0'
+//
+//    // AssertJ (удобные проверки)
+//    testImplementation 'org.assertj:assertj-core:3.24.2'
+//
+//    // Подключение к базам данных
+////    implementation 'mysql:mysql-connector-java:8.0.33'
+//
+    // Логирование
+//    implementation 'org.slf4j:slf4j-nop:2.0.7'//отключает логирование
+//    implementation 'ch.qos.logback:logback-classic:1.5.16'
+
+//}
+
+//test {
+//    useTestNG()
+//}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.30.0'
+    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.14.1'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '6.0.1'
+    //implementation 'org.slf4j:slf4j-nop:2.0.7' // зависимость от SLF4J
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'ch.qos.logback:logback-classic:1.5.16'
+
+    implementation 'com.google.guava:guava:32.1.2-jre'
+}
+
+test {
+    useJUnitPlatform()
+}
