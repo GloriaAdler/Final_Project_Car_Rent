@@ -1,4 +1,4 @@
-package tests.pages;
+package car_rent.tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AccountPage;
 import pages.HomePage;
 import pages.LoginPage;
-import tests.core.TestBase;
+import car_rent.core.TestBase;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginPageTests extends TestBase {

@@ -1,8 +1,8 @@
-package tests.pages;
+package car_rent.tests;
 
 import core.BasePage;
 import org.junit.jupiter.api.Test;
-import tests.core.TestBase;
+import car_rent.core.TestBase;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HomePageTest extends TestBase{

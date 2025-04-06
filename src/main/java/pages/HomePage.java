@@ -19,6 +19,29 @@ public class HomePage extends BasePage {
     WebElement login;
     public void selectLogin() {
         click(login);
-        new HomePage(driver, wait);
+        //new HomePage(driver, wait);
+    }
+
+    @FindBy(css = "input[name='startDateTime']")
+    WebElement startDateTimeInput;
+
+    @FindBy(css = "input[name='endDateTime']")
+    WebElement endDateTimeInput;
+
+    @FindBy(css = "button[type='submit']")
+    WebElement searchButton;
+
+    // Метод для ввода дат аренды
+    public void enterRentalDates(String startDate, String endDate) {
+        startDateTimeInput.clear();
+        startDateTimeInput.sendKeys(startDate);
+        endDateTimeInput.clear();
+        endDateTimeInput.sendKeys(endDate);
+    }
+
+    // Метод для нажатия на кнопку поиска
+    public SearchResultsPage submitSearch() {
+        searchButton.click();
+        return new SearchResultsPage(driver, wait);
     }
 }
