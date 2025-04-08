@@ -36,4 +36,24 @@ public class BasePage {
         System.out.println("Screenshot saved to: [" + screenshot.getAbsolutePath() + "]");
         return screenshot.getAbsolutePath();
     }
+
+
+ // Метод для ввода текста в поле. Для регистрации
+    public void type(WebElement element, String text) {
+        if (text != null) {
+            click(element);
+            element.clear();
+            element.sendKeys(text);
+        }
+    }
+
+    public void scrollToTop() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0);");
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", logIn);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
 }

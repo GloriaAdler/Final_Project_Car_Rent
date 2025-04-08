@@ -37,4 +37,12 @@ public class LoginPage extends BasePage {
     public void clickLoginButton() {
         loginButton.click();
     }
+
+    @FindBy(xpath = "//a[normalize-space(text())='Sign up']")
+    WebElement signUp;
+
+    // Кликаем на кнопку Sign up (регистрация)
+    public void clickSignUp() {
+        signUp.click();
+    }
 }

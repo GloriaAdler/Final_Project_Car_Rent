@@ -15,7 +15,7 @@ public class SearchResultsPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "h3.font-semibold.text-lg")  // Пример локатора для списка машин
+    @FindBy(xpath = "//h3[normalize-space(text())='Filter Cars']")  // Пример локатора для списка машин
     WebElement carListContainer;
 
     // Метод для проверки, что список автомобилей отображается

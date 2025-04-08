@@ -17,6 +17,7 @@ public class HomePage extends BasePage {
     //текстлинк "Log in" на главной странице
     @FindBy(xpath = "(//a[contains(@class,'text-white font-bold')])[2]")
     WebElement login;
+
     public void selectLogin() {
         click(login);
         //new HomePage(driver, wait);

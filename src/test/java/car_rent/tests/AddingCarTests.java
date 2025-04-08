@@ -27,7 +27,7 @@ public class AddingCarTests extends TestBase {
         // Переход к странице поиска (HomePage)
          HomePage homePage = app.getHomePage();
         // Вводим даты аренды
-        String startDate = "15.04.2025 10 00";
+        String startDate = "10.04.2025 10 00";
         String endDate = "16.04.2025 10 00";
         // Вводим даты аренды
         homePage.enterRentalDates(startDate, endDate);

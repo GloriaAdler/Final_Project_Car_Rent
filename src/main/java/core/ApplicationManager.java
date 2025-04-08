@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AccountPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.RegistrationPage;
 
 import java.time.Duration;
 
@@ -19,7 +20,8 @@ public class ApplicationManager {
     public BasePage basePage;
     public HomePage homePage;
     public LoginPage loginPage;
-    public AccountPage accountPage;
+    public RegistrationPage registrationPage;
+
 
     public void init() {
 
@@ -40,13 +42,14 @@ public class ApplicationManager {
         }
         driver.get("https://car-rental-cymg8.ondigitalocean.app/");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // неявное
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // неявное
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5)); // ожидание загрузки страницы
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         basePage = new BasePage(driver, wait);
         homePage = new HomePage(driver, wait);
         loginPage = new LoginPage(driver, wait);
+        registrationPage = new RegistrationPage(driver, wait);
     }
 
     public BasePage getBasePage() {
@@ -63,6 +66,10 @@ public class ApplicationManager {
 
     public AccountPage getAccountPage() {
         return new AccountPage(driver, wait); // чтобы каждый раз был новый DOM
+    }
+
+    public RegistrationPage getRegistrationPage() {
+        return new RegistrationPage(driver, wait); // чтобы каждый раз был новый DOM
     }
 
     public void stop() {
