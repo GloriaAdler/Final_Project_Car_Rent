@@ -9,32 +9,39 @@ import pages.SearchResultsPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ListOfAvailableCarsTests extends TestBase {
+public class SearchResultsCarsTests extends TestBase {
 
     @BeforeEach
     public void preCondition() {
-        // Переходим на домашнюю страницу
         HomePage homePage = app.getHomePage();
         homePage.selectLogin();
         LoginPage loginPage = app.getLoginPage();
-        loginPage.enterEmail("test43Test1@gmail.com");
-        loginPage.enterPassword("Password@1");
+        loginPage.enterEmail("admin@gmail.com");
+        loginPage.enterPassword("Yyyyyyy12345!");
         loginPage.clickLoginButton();
     }
 
     @Test
-    public void carSearchPositiveTest() {
-        // Переход к странице поиска (HomePage)
+    public void searchForCarsPositiveTest() {
          HomePage homePage = app.getHomePage();
-        // Вводим даты аренды
-        String startDate = "10.04.2025 10 00";
-        String endDate = "16.04.2025 10 00";
-        // Вводим даты аренды
+        String startDate = "15.04.2025 10 00";
+        String endDate = "20.04.2025 10 00";
         homePage.enterRentalDates(startDate, endDate);
-        // Нажимаем на кнопку поиска
         SearchResultsPage searchResultsPage = homePage.submitSearch();
-        // Проверяем, что список доступных автомобилей отобразился
         assertTrue(searchResultsPage.isCarListDisplayed(), "Список доступных автомобилей не отображается.");
         shouldRunTearDown = false;
     }
+
+    @Test
+    public void searchForCarsNegativeTest() {
+        HomePage homePage = app.getHomePage();
+        String startDate = "15.01.2025 10 00";
+        String endDate = "20.01.2025 10 00";
+        homePage.enterRentalDates(startDate, endDate);
+        SearchResultsPage searchResultsPage = homePage.submitSearch();
+        assertTrue(searchResultsPage.isErrorMessageStart());
+        shouldRunTearDown = false;
+    }
 }
+
+

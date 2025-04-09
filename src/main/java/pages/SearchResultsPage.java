@@ -15,10 +15,10 @@ public class SearchResultsPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//h3[normalize-space(text())='Filter Cars']")  // Пример локатора для списка машин
+    @FindBy(xpath = "//h3[normalize-space(text())='Filter Cars']")
     WebElement carListContainer;
 
-    // Метод для проверки, что список автомобилей отображается
+    // Метод для проверки, что список автомобилей отображается (наличие фильтров)
     public boolean isCarListDisplayed() {
         try {
             return carListContainer.isDisplayed();
@@ -29,5 +29,12 @@ public class SearchResultsPage extends BasePage {
         }
             return false;
         }
+    }
+
+    @FindBy(xpath = "//p[normalize-space(text())='Start date and time cannot be in the past']")
+    WebElement errorMessageStartDate;
+
+    public boolean isErrorMessageStart(){
+        return errorMessageStartDate.isDisplayed();
     }
 }
