@@ -1,6 +1,6 @@
-package pages;
+package carrent.pages;
 
-import core.BasePage;
+import carrent.core.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,13 +14,11 @@ public class HomePage extends BasePage {
         PageFactory.initElements(driver, this); // инициализация всех @FindBy
     }
 
-    //текстлинк "Log in" на главной странице
     @FindBy(xpath = "(//a[contains(@class,'text-white font-bold')])[2]")
     WebElement login;
 
     public void selectLogin() {
         click(login);
-        //new HomePage(driver, wait);
     }
 
     @FindBy(css = "input[name='startDateTime']")
@@ -32,7 +30,6 @@ public class HomePage extends BasePage {
     @FindBy(css = "button[type='submit']")
     WebElement searchButton;
 
-    // Метод для ввода дат аренды
     public void enterRentalDates(String startDate, String endDate) {
         startDateTimeInput.clear();
         startDateTimeInput.sendKeys(startDate);
@@ -40,7 +37,6 @@ public class HomePage extends BasePage {
         endDateTimeInput.sendKeys(endDate);
     }
 
-    // Метод для нажатия на кнопку поиска
     public SearchResultsPage submitSearch() {
         searchButton.click();
         return new SearchResultsPage(driver, wait);

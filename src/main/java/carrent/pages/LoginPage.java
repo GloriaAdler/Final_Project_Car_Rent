@@ -1,6 +1,6 @@
-package pages;
+package carrent.pages;
 
-import core.BasePage;
+import carrent.core.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +11,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
-        PageFactory.initElements(driver, this); // инициализация всех @FindBy
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "input[name='email']")
@@ -23,17 +23,14 @@ public class LoginPage extends BasePage {
     @FindBy(css = "button[type='submit']")
     WebElement loginButton;
 
-    // Вводим email в поле
     public void enterEmail(String email) {
         userEmail.sendKeys(email);
     }
 
-    // Вводим пароль в поле
     public void enterPassword(String password) {
         userPassword.sendKeys(password);
     }
 
-    // Кликаем на кнопку логин
     public void clickLoginButton() {
         loginButton.click();
     }
@@ -41,8 +38,21 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//a[normalize-space(text())='Sign up']")
     WebElement signUp;
 
-    // Кликаем на кнопку Sign up (регистрация)
     public void clickSignUp() {
         signUp.click();
+    }
+
+    public void adminLogIn(String mail, String password) {
+        userEmail.sendKeys(mail);
+        userPassword.sendKeys(password);
+        loginButton.click();
+    }
+
+    @FindBy(xpath = "//p[contains(text(),'Password or email incorrect')]")
+    WebElement errorsMessage;
+
+    public String getErrorMessage() {
+        errorsMessage.getText();
+        return errorsMessage.getText();
     }
 }

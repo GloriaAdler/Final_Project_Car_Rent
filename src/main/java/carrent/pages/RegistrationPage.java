@@ -1,6 +1,6 @@
-package pages;
+package carrent.pages;
 
-import core.BasePage;
+import carrent.core.BasePage;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +19,7 @@ public class RegistrationPage extends BasePage {
 
     public RegistrationPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
-        PageFactory.initElements(driver, this); // инициализация всех @FindBy
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "input[name='firstName']")

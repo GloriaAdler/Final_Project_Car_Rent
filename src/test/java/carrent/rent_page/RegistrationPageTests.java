@@ -1,13 +1,13 @@
-package car_rent.tests;
+package carrent.rent_page;
 
-import car_rent.core.TestBase;
+import carrent.core.TestBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RegistrationPage;
+import carrent.pages.HomePage;
+import carrent.pages.LoginPage;
+import carrent.pages.RegistrationPage;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -68,7 +68,7 @@ public class RegistrationPageTests extends TestBase {
     @Test
     public void registrationWithInvalidPasswordNegativeTest() {
         new RegistrationPage(app.driver, app.wait)
-                .enterPersonalData("John", "Snow", "johnsnow"+System.currentTimeMillis()+"@gmail.com", "Password@")
+                .enterPersonalData("John", "Snow", "johnsnow"+System.currentTimeMillis()+"@gmail.com", "Password")
                 .agreeToTerms()
                 .clickCreateButton();
         RegistrationPage registrationPage = app.getRegistrationPage();

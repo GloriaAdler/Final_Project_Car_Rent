@@ -1,11 +1,11 @@
-package car_rent.tests;
+package carrent.rent_page;
 
-import car_rent.core.TestBase;
+import carrent.core.TestBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.SearchResultsPage;
+import carrent.pages.HomePage;
+import carrent.pages.LoginPage;
+import carrent.pages.SearchResultsPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

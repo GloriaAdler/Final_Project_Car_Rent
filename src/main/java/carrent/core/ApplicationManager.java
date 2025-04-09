@@ -1,15 +1,17 @@
-package core;
+package carrent.core;
 
+import carrent.admin_pages.AdminPage;
+import carrent.admin_pages.CarsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.AccountPage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RegistrationPage;
+import carrent.pages.AccountPage;
+import carrent.pages.HomePage;
+import carrent.pages.LoginPage;
+import carrent.pages.RegistrationPage;
 
 import java.time.Duration;
 
@@ -42,7 +44,7 @@ public class ApplicationManager {
         }
         driver.get("https://car-rental-cymg8.ondigitalocean.app/");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // неявное
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // неявное
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5)); // ожидание загрузки страницы
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -62,6 +64,14 @@ public class ApplicationManager {
 
     public LoginPage getLoginPage() {
         return loginPage;
+    }
+
+    public AdminPage getAdminPage() {
+        return new AdminPage(driver, wait);
+    }
+
+    public CarsPage getCarsPage() {
+        return new CarsPage(driver, wait);
     }
 
     public AccountPage getAccountPage() {

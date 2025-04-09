@@ -1,6 +1,6 @@
-package pages;
+package carrent.pages;
 
-import core.BasePage;
+import carrent.core.BasePage;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

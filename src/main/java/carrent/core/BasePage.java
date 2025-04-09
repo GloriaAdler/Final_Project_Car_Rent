@@ -1,4 +1,4 @@
-package core;
+package carrent.core;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;

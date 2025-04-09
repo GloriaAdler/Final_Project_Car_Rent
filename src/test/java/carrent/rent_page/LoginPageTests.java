@@ -1,13 +1,13 @@
-package car_rent.tests;
+package carrent.rent_page;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.AccountPage;
-import pages.HomePage;
-import pages.LoginPage;
-import car_rent.core.TestBase;
+import carrent.pages.AccountPage;
+import carrent.pages.HomePage;
+import carrent.pages.LoginPage;
+import carrent.core.TestBase;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginPageTests extends TestBase {
@@ -28,8 +28,8 @@ public class LoginPageTests extends TestBase {
     public void authorizationPositiveTest() {
         // Переходим на страницу логина
         LoginPage loginPage = app.getLoginPage();
-        loginPage.enterEmail("test43Test1@gmail.com");
-        loginPage.enterPassword("Password@1");
+        loginPage.enterEmail("test43@gmail.com");
+        loginPage.enterPassword("Password1@");
         loginPage.clickLoginButton();
         // Проверяем видимость элемента "My Account"
         AccountPage accountPage = app.getAccountPage(); // получаем новую версию после логина
