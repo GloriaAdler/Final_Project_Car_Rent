@@ -9,7 +9,7 @@ import pages.SearchResultsPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AddingCarTests extends TestBase {
+public class ListOfAvailableCarsTests extends TestBase {
 
     @BeforeEach
     public void preCondition() {
