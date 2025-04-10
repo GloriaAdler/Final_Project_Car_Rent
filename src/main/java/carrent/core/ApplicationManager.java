@@ -57,7 +57,7 @@ public class ApplicationManager {
 //    }
 
     //Jenkins
-    public void init() {
+    public void initJ() {
 
         String browser = System.getProperty("browser", "chrome");
         boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
