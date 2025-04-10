@@ -15,7 +15,7 @@ public class TestBase {
     @BeforeEach
     public void setUp(TestInfo testInfo) {
         logger.info("Starting test: {}", testInfo.getDisplayName());
-        app.initJ();
+        app.init();
     }
 
     public boolean shouldRunTearDown  = true; // Флаг для контроля выполнения закрытия браузера после прохождения тестов
