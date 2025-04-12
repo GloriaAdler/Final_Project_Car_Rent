@@ -1,6 +1,5 @@
 package carrent.rent_page;
 
-import carrent.core.BasePage;
 import carrent.core.TestBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,13 +14,14 @@ public class SearchResultsCarsTests extends TestBase {
     @BeforeEach
     public void preCondition() {
         HomePage homePage = app.getHomePage();
-//        homePage.selectLogin();
-//        LoginPage loginPage = app.getLoginPage();
-//        loginPage.enterEmail("admin@gmail.com");
-//        loginPage.enterPassword("Yyyyyyy12345!");
-//        BasePage basePage = app.getLoginPage();
-//        basePage.scrollToTop();
-//        loginPage.clickLoginButton();
+        homePage.selectLogin();
+        LoginPage loginPage = app.getLoginPage();
+        loginPage.enterEmail("admin@gmail.com");
+        loginPage.enterPassword("Yyyyyyy12345!");
+//        loginPage.enterEmail("test43@gmail.com");
+//        loginPage.enterPassword("Password1@");
+
+        loginPage.clickLoginButton();
     }
 
     @Test
@@ -38,8 +38,8 @@ public class SearchResultsCarsTests extends TestBase {
     @Test
     public void searchForCarsNegativeTest() {
         HomePage homePage = app.getHomePage();
-        String startDate = "15.01.2025 10 00";
-        String endDate = "20.01.2025 10 00";
+        String startDate = "15-03-2025T10:30";
+        String endDate = "20-03-2025T10:30";
         homePage.enterRentalDates(startDate, endDate);
         SearchResultsPage searchResultsPage = homePage.submitSearch();
         assertTrue(searchResultsPage.isErrorMessageStart());

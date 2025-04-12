@@ -14,7 +14,7 @@ public class HomePage extends BasePage {
         PageFactory.initElements(driver, this); // инициализация всех @FindBy
     }
 
-    @FindBy(xpath = "(//a[contains(@class,'text-white font-bold')])[2]")
+    @FindBy(xpath = "//a[normalize-space(text())='Log in']")
     WebElement login;
 
     public void selectLogin() {

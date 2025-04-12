@@ -48,7 +48,7 @@ public class BasePage {
     }
 
     public void scrollToTop() {
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 1000);");
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0);");
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", logIn);
         try {
             Thread.sleep(500);

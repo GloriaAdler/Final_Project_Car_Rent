@@ -55,7 +55,18 @@ dependencies {
 
 test {
     useJUnitPlatform()
-//    testLogging {
-//        events "passed", "failed", "skipped"
-//    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+}
+
+def registerTask(String taskName, String tag) {
+    tasks.register(taskName, Test) {
+        useJUnitPlatform {
+            includeTags tag
+        }
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
+    }
 }

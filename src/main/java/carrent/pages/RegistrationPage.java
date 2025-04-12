@@ -55,7 +55,10 @@ public class RegistrationPage extends BasePage {
     }
 
     // Метод для ожидания элемента "Registration successful! ..." об успешной регистрации
-    @FindBy(xpath = "(//h3[text()='Success']/following-sibling::p)[2]")
+//    @FindBy(xpath = "(//h3[text()='Success']/following-sibling::p)[2]")
+//    WebElement successMessage;
+
+    @FindBy(xpath = "//h2[normalize-space(text())='You’re almost done setting up your account']")
     WebElement successMessage;
 
     public RegistrationPage verifySuccessMessage(String messageText) {
@@ -63,12 +66,13 @@ public class RegistrationPage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "(//button[@type='button'])[2]")
-    WebElement okButton;
-
-    public void clickOkButton() {
-        okButton.click();
-    }
+    //нет кнопки после обновления сайта
+//    @FindBy(xpath = "(//button[@type='button'])[2]")
+//    WebElement okButton;
+//
+//    public void clickOkButton() {
+//        okButton.click();
+//    }
 
     //Метод для ожидания элемента "Error. Customer already exists" об ошибке регистрации (негативные тесты)
     @FindBy(xpath = "//h3[normalize-space(text())='Error']")

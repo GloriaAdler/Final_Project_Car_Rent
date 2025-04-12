@@ -12,9 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginPageTests extends TestBase {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
-
     AccountPage accountPage = new AccountPage(app.driver, app.wait);
 
     @BeforeEach

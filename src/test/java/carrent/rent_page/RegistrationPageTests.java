@@ -3,8 +3,7 @@ package carrent.rent_page;
 import carrent.core.TestBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import carrent.pages.HomePage;
 import carrent.pages.LoginPage;
 import carrent.pages.RegistrationPage;
@@ -14,8 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegistrationPageTests extends TestBase {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
     RegistrationPage registrationPage = new RegistrationPage(app.driver, app.wait);
 
     @BeforeEach
@@ -33,8 +30,8 @@ public class RegistrationPageTests extends TestBase {
                 .enterPersonalData("John", "Snow", "johnsnow"+System.currentTimeMillis()+"@gmail.com", "Password1@")
                 .agreeToTerms()
                 .clickCreateButton()
-                .verifySuccessMessage("Registration successful! Please check your email to confirm your registration.")
-                .clickOkButton()
+                .verifySuccessMessage("You’re almost done setting up your account")
+//                .clickOkButton() //нет кнопки после обновления сайта
         ;
         shouldRunTearDown = false;
     }
