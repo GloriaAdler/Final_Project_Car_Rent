@@ -1,5 +1,6 @@
 package carrent.core;
 
+import carrent.admin_pages.AddCarPage;
 import carrent.admin_pages.AdminPage;
 import carrent.admin_pages.CarsPage;
 import org.openqa.selenium.WebDriver;
@@ -54,52 +55,6 @@ public class ApplicationManager {
         registrationPage = new RegistrationPage(driver, wait);
     }
 
-    //Jenkins
-//    public void initJ() {
-//
-//        String browser = System.getProperty("browser", "chrome");
-//        boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
-//
-//        switch (browser.toLowerCase()) {
-//            case "firefox":
-//                WebDriverManager.firefoxdriver().setup();
-//                FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                if (isHeadless) {
-//                    firefoxOptions.addArguments("--headless");
-//                    firefoxOptions.addArguments("--window-size=1920,1080");
-//                }
-//                driver = new FirefoxDriver(firefoxOptions);
-//                break;
-//
-//            case "edge":
-//                WebDriverManager.edgedriver().setup();
-//                // В Edge headless поддержка пока нестабильна, можно оставить обычный режим
-//                driver = new EdgeDriver();
-//                break;
-//
-//            default: // chrome
-//                WebDriverManager.chromedriver().setup();
-//                ChromeOptions chromeOptions = new ChromeOptions();
-//                if (isHeadless) {
-//                    chromeOptions.addArguments("--headless=new"); // более стабильный headless режим
-//                    chromeOptions.addArguments("--disable-gpu");
-//                    chromeOptions.addArguments("--window-size=1920,1080");
-//                }
-//                driver = new ChromeDriver(chromeOptions);
-//        }
-//
-//        driver.get("https://car-rental-cymg8.ondigitalocean.app/");
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-//        basePage = new BasePage(driver, wait);
-//        homePage = new HomePage(driver, wait);
-//        loginPage = new LoginPage(driver, wait);
-//        registrationPage = new RegistrationPage(driver, wait);
-//    }
-
     public BasePage getBasePage() {
         return basePage;
     }
@@ -126,6 +81,10 @@ public class ApplicationManager {
 
     public RegistrationPage getRegistrationPage() {
         return new RegistrationPage(driver, wait); // чтобы каждый раз был новый DOM
+    }
+
+    public AddCarPage getAddCarPage() {
+        return new AddCarPage(driver, wait);
     }
 
     public void stop() {

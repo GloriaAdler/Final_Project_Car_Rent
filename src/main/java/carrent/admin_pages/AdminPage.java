@@ -35,7 +35,6 @@ public class AdminPage extends BasePage {
         }
     }
 
-
     public AdminPage enterToTheAdminPanel(){
         adminElement.click();
         return new AdminPage(driver, wait);
@@ -47,5 +46,13 @@ public class AdminPage extends BasePage {
     public CarsPage enterToTheCarsPage(){
         carsLink.click();
         return new CarsPage(driver,wait);
+    }
+
+    @FindBy (xpath = "//button[contains(text(),'Add car')]")
+    WebElement carsButton;
+
+    public AddCarPage clickAddCar() {
+        carsButton.click();
+        return new AddCarPage(driver, wait);
     }
 }
