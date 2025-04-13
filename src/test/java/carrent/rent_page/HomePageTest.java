@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HomePageTest extends TestBase{
 
-    @MethodSource
+    @Test
     public void openSiteTest() {
         String actualUrl = app.driver.getCurrentUrl();
         BasePage.logger.info("Checking that the site has opened. URL: {}", actualUrl);
